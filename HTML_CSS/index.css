@@ -1,0 +1,72 @@
+header{
+    color: rgb(168, 100, 16);
+}
+
+body{
+    text-align: center;
+    background-color: rgb(253, 253, 253);
+    background-image: url(./space.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+
+
+}
+.visual-title{
+    color: bisque;
+}
+.visual-title1{
+    color: bisque;
+    float: left;
+    top : 125px;
+}
+.visual-title2{
+    color: bisque;
+    float: right;
+}
+
+label{
+    color:rgb(255, 255, 255)
+}
+
+a{
+    color: rgb(20, 183, 211);
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.imgl {
+    top: 150px;
+    bottom :50px;
+    left: 0;
+    width: 300px;
+    height: 80%;
+    position: fixed;
+    border-style: none;
+}
+
+.imgr {
+    top: 150px;
+    right: 2;
+    width: 300px;
+    height: 80%;
+    position: fixed;
+    border-style: none;
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+source{
+    text-align: left;
+}

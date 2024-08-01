@@ -1,0 +1,240 @@
+<html lang="en">
+  <head>
+    <meta charset=" UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./static/index.css" rel="stylesheet" />
+    <title>Euro 2020 Stats Viewer</title>
+  </head>
+  <body>
+    <header>
+      <h1><b>Euro 2020 Stats Viewer</b></h1>
+      <br />
+    <h3 class="visual-title1" >Team Lineup 1</h3>
+    <img src="" id="jer1" class="imgl" />
+    <h3 class="visual-title2">Team Lineup 2</h3>
+    <img src="" id="jer2" class="imgr" />
+    <br>
+    <br>
+    </header>
+    <p id="source">
+      Access The Source Code
+      <a href="https://github.com/Atrix21/FootballProject">here</a>
+    </p>
+    <br />
+    <label for="Team-select">Choose a Team</label>
+    <br />
+    <select id="country" onchange="changeCountry()">
+      <option value="menu" disabled selected>--Please choose a team--</option>
+      <option value="fra">France</option>
+      <option value="spa">Spain</option>
+      <option value="it">Italy</option>
+      <option value="eng">England</option>
+      <option value="den">Denmark</option>
+      <br />
+    </select>
+    <br>
+    <br>
+    <select id = "oppTeam">
+
+    </select>
+    <br>
+    <br>
+    <button onclick="displayImage()">Display Stats</button>
+    <br>
+    <br>
+    <h3 class="visual-title">Passing Network Analysis</h3>
+    <img src="" id="pn" class="imgs" />
+    <br>
+    <br>
+    <h3 class="visual-title">Heat Map of</h3>
+    <img src="" id="hm" class="imgs" />
+    <br>
+    <br>
+    <h3 class="visual-title">Shot Map</h3>
+    <img src="" id="sm" class="imgs" />
+
+  </body>
+  <script>
+    function displayImage() {
+      var teamName = document.getElementById("country").value;
+      var oppName = document.getElementById("oppTeam").value;
+
+      var img1 = document.getElementById("jer1");
+      img1.src = `./static/images/lineups/${teamName}${oppName}jer1.png`;
+      img1.alt = teamName;
+
+      var img2 = document.getElementById("jer2");
+      img2.src = `./static/images/lineups/${teamName}${oppName}jer2.png`;
+      img2.alt = teamName;
+
+      var img3 = document.getElementById("pn");
+      img3.src = `./static/images/PassingNetwork/${teamName}${oppName}pn.png`;
+      img3.alt = teamName;
+
+      var img4 = document.getElementById("hm");
+      img4.src = `./static/images/HeatMaps/${teamName}${oppName}hm.png`;
+      img4.alt = teamName;
+
+      var img5 = document.getElementById("sm");
+      img5.src = `./static/images/Shotmaps/${teamName}${oppName}sm.png`;
+      img5.alt = teamName;
+    }
+
+    function changeCountry(){
+      const teams = {
+        "fra" : [
+        {
+          text : 'Portugal',
+          value : 'por',
+          selected : true
+        },
+        {
+          text : 'Hungary',
+          value : 'hung'
+        },
+        {
+          text : 'Switzerland',
+          value : 'swit'
+        },
+        {
+          text : 'Germany',
+          value : 'ger'
+        }
+        ],
+        "it" : [
+        {
+          text : 'Spain',
+          value : 'spa',
+          selected : true
+        },
+        {
+          text : 'Wales',
+          value : 'wal'
+        },
+        {
+          text : 'Switzerland',
+          value : 'swit'
+        },
+        {
+          text : 'England',
+          value : 'eng'
+        },
+        {
+          text : 'Austria',
+          value : 'aus'
+        },
+        {
+          text : 'Turkey',
+          value : 'tur'
+        },
+        {
+          text : 'Belgium',
+          value : 'bel'
+        }
+        ],
+        "eng" : [
+        {
+          text : 'Germany',
+          value : 'ger',
+          selected : true
+        },
+        {
+          text : 'Scotland',
+          value : 'sco'
+        },
+        {
+          text : 'Croatia',
+          value : 'cro'
+        },
+        {
+          text : 'Denmark',
+          value : 'den'
+        },
+        {
+          text : 'Ukraine',
+          value : 'ukr'
+        },
+        {
+          text : 'Italy',
+          value : 'it'
+        },
+        {
+          text : 'Czech Republic',
+          value : 'cze'
+        }
+        ],
+        "spa" : [
+        {
+          text : 'Poland',
+          value : 'pol',
+          selected : true
+        },
+        {
+          text : 'Sweden',
+          value : 'swe'
+        },
+        {
+          text : 'Italy',
+          value : 'it'
+        },
+        {
+          text : 'Switzerland',
+          value : 'swit',
+        },
+        {
+          text : 'Croatia',
+          value : 'cro'
+        },
+        {
+          text : 'Slovakia',
+          value : 'slo'
+        }
+        ],
+        "den" : [
+        {
+          text : 'Belgium',
+          value : 'bel',
+          selected : true
+        },
+        {
+          text : 'Finland',
+          value : 'fin'
+        },
+        {
+          text : 'Russia',
+          value : 'rus'
+        },
+        {
+          text : 'Czech Republic',
+          value : 'cze'
+        },
+        {
+          text : 'England',
+          value : 'eng'
+        },
+        {
+          text : 'Wales',
+          value : 'wal'
+        }
+        ]
+      }
+      var country = document.getElementById("country").value;
+      var teamSelect = document.getElementById("oppTeam");
+      var size = teamSelect.options.length;
+      for(let i=size-1;i>=0;i--){
+            teamSelect.remove(i);
+        }
+
+      teams[country].forEach(option => {
+            teamSelect.options.add(new Option(option.text, option.value, option.selected));
+      });
+
+    }
+
+  </script>
+</html>
